@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cellutionz – Phone & Laptop Repair | Cincinnati, OH</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#ffffff;--accent:#2563eb;--accent-dark:#1d4ed8;--gray-100:#f5f5f3;--gray-200:#e8e8e4;--gray-500:#888884;--gray-800:#2a2a28;--text:#0a0a0a;--radius:14px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:-0.5px;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{background:var(--accent);color:var(--black);padding:0.55rem 1.3rem;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--accent-dark);}
+#hero{min-height:100vh;background:var(--black);display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.hero-glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:780px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:var(--accent);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;color:var(--white);letter-spacing:-2px;margin-bottom:1.5rem;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:520px;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:var(--black);padding:0.85rem 2rem;border-radius:50px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);}
+.btn-secondary{background:transparent;color:var(--white);padding:0.85rem 2rem;border-radius:50px;border:1.5px solid rgba(255,255,255,0.2);font-family:'Syne',sans-serif;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);}
+.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--white);}
+.stat-num span{color:var(--accent);}
+.stat-label{font-size:0.82rem;color:rgba(255,255,255,0.45);margin-top:2px;}
+.marquee-bar{background:var(--accent);padding:0.75rem 0;overflow:hidden;white-space:nowrap;}
+.marquee-track{display:inline-block;animation:marquee 22s linear infinite;}
+.marquee-track span{font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);padding:0 2.5rem;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+section{padding:100px 5%;}
+.section-label{font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:1rem;}
+.section-sub{font-size:1rem;color:var(--gray-500);max-width:520px;line-height:1.7;}
+#services{background:var(--gray-100);}
+.services-header{margin-bottom:3.5rem;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+.service-card{background:var(--white);border-radius:var(--radius);padding:2rem;border:1px solid var(--gray-200);transition:all 0.3s;position:relative;overflow:hidden;}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.08);}
+.service-card:hover::after{transform:scaleX(1);}
+.svc-icon{width:48px;height:48px;border-radius:12px;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:22px;}
+.svc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;}
+.svc-desc{font-size:0.9rem;color:var(--gray-500);line-height:1.6;}
+.svc-price{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--gray-200);font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--accent-dark);}
+#pricing{background:var(--black);}
+#pricing .section-title{color:var(--white);}
+#pricing .section-sub{color:rgba(255,255,255,0.5);}
+.pricing-tabs{display:flex;gap:0.5rem;margin:2.5rem 0;background:rgba(255,255,255,0.05);padding:5px;border-radius:50px;width:fit-content;}
+.ptab{padding:0.55rem 1.5rem;border-radius:50px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:600;font-size:0.88rem;border:none;transition:all 0.2s;background:transparent;color:rgba(255,255,255,0.5);}
+.ptab.active{background:var(--accent);color:var(--black);}
+.pricing-panel{display:none;}
+.pricing-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+.price-row{background:rgba(255,255,255,0.04);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.07);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.2s;}
+.price-row:hover{border-color:rgba(37,99,235,0.3);}
+.pr-name{font-size:0.9rem;color:rgba(255,255,255,0.8);}
+.pr-price{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--accent);white-space:nowrap;margin-left:1rem;}
+.pricing-note{margin-top:2rem;font-size:0.85rem;color:rgba(255,255,255,0.35);}
+#about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-visual{background:var(--black);border-radius:24px;padding:3rem;position:relative;overflow:hidden;}
+.about-bg-text{position:absolute;top:-20px;right:-10px;font-family:'Syne',sans-serif;font-weight:800;font-size:7rem;color:rgba(37,99,235,0.05);user-select:none;line-height:1;}
+.about-callout{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:var(--white);line-height:1.2;position:relative;}
+.about-callout em{font-style:normal;color:var(--accent);}
+.about-chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:2rem;}
+.chip{background:rgba(37,99,235,0.1);color:var(--accent);border:1px solid rgba(37,99,235,0.2);padding:0.35rem 0.85rem;border-radius:50px;font-size:0.78rem;font-weight:600;}
+.about-content p{font-size:1rem;color:var(--gray-500);line-height:1.8;margin-bottom:1rem;}
+.about-features{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
+.af-item{display:flex;align-items:flex-start;gap:12px;}
+.af-dot{width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--accent);margin-top:3px;display:flex;align-items:center;justify-content:center;}
+.af-dot::after{content:'✓';font-size:10px;color:var(--black);font-weight:700;}
+.af-text{font-size:0.95rem;color:var(--gray-800);line-height:1.5;}
+#contact{background:var(--gray-100);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start;}
+.contact-info p{font-size:1rem;color:var(--gray-500);line-height:1.7;margin-bottom:2rem;}
+.contact-details{display:flex;flex-direction:column;gap:1rem;}
+.cd-item{display:flex;align-items:center;gap:14px;background:var(--white);padding:1rem 1.25rem;border-radius:12px;border:1px solid var(--gray-200);}
+.cd-icon{width:38px;height:38px;border-radius:9px;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.cd-label{font-size:0.75rem;color:var(--gray-500);margin-bottom:2px;}
+.cd-val{font-size:0.92rem;font-weight:500;color:var(--text);}
+.contact-form{background:var(--white);border-radius:20px;padding:2.5rem;border:1px solid var(--gray-200);}
+.form-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:1.75rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--gray-800);margin-bottom:0.4rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem 1rem;border:1.5px solid var(--gray-200);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.92rem;color:var(--text);background:var(--white);transition:border-color 0.2s;outline:none;appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-submit{width:100%;background:var(--black);color:var(--white);border:none;padding:0.95rem;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;display:flex;align-items:center;justify-content:center;gap:8px;}
+.form-submit:hover{background:var(--accent);color:var(--black);}
+.form-success{display:none;text-align:center;padding:1rem;background:rgba(37,99,235,0.1);border-radius:10px;color:var(--accent-dark);font-weight:600;margin-top:1rem;font-size:0.9rem;}
+footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-copy{font-size:0.82rem;color:rgba(255,255,255,0.3);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.4);text-decoration:none;}
+.footer-links a:hover{color:var(--accent);}
+
+/* CHAT WIDGET */
+#chat-bubble{position:fixed;bottom:28px;right:28px;z-index:9999;}
+.chat-fab{width:64px;height:64px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,99,235,0.45);transition:transform 0.2s,box-shadow 0.2s;position:relative;}
+.chat-fab:hover{transform:scale(1.08);box-shadow:0 14px 44px rgba(37,99,235,0.55);}
+.chat-fab svg{width:28px;height:28px;fill:var(--black);}
+.chat-notif{position:absolute;top:-2px;right:-2px;width:20px;height:20px;border-radius:50%;background:#ff4444;border:2px solid var(--white);font-size:10px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;animation:npulse 2s infinite;}
+@keyframes npulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+#chat-window{position:fixed;bottom:108px;right:28px;z-index:9999;width:370px;max-height:580px;background:var(--white);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,0.2);display:flex;flex-direction:column;overflow:hidden;transform:scale(0.9) translateY(24px);opacity:0;pointer-events:none;transition:all 0.28s cubic-bezier(0.34,1.56,0.64,1);border:1px solid var(--gray-200);}
+#chat-window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
+.chat-header{background:var(--black);padding:1.1rem 1.25rem;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.chat-avatar{width:42px;height:42px;border-radius:50%;background:rgba(37,99,235,0.15);border:2px solid rgba(37,99,235,0.4);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.chat-hinfo{flex:1;}
+.chat-hname{font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--white);}
+.chat-hstatus{font-size:0.72rem;color:var(--accent);display:flex;align-items:center;gap:5px;margin-top:2px;}
+.chat-hstatus::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite;}
+.chat-close{background:none;border:none;color:rgba(255,255,255,0.45);cursor:pointer;font-size:1.2rem;padding:4px;line-height:1;transition:color 0.2s;flex-shrink:0;}
+.chat-close:hover{color:var(--white);}
+.chat-msgs{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+.chat-msgs::-webkit-scrollbar{width:3px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--gray-200);border-radius:4px;}
+.msg{max-width:86%;display:flex;flex-direction:column;gap:3px;}
+.msg.bot{align-self:flex-start;}
+.msg.user{align-self:flex-end;}
+.msg-bubble{padding:0.65rem 0.95rem;border-radius:16px;font-size:0.88rem;line-height:1.55;}
+.msg.bot .msg-bubble{background:var(--gray-100);color:var(--text);border-bottom-left-radius:4px;}
+.msg.user .msg-bubble{background:var(--black);color:var(--white);border-bottom-right-radius:4px;}
+.msg-time{font-size:0.68rem;color:var(--gray-500);padding:0 4px;}
+.msg.user .msg-time{text-align:right;}
+.typing-ind{display:flex;align-items:center;gap:4px;padding:0.65rem 0.95rem;background:var(--gray-100);border-radius:16px;border-bottom-left-radius:4px;width:fit-content;}
+.t-dot{width:7px;height:7px;border-radius:50%;background:var(--gray-500);animation:tdot 1.2s infinite;}
+.t-dot:nth-child(2){animation-delay:0.2s;}
+.t-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes tdot{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-5px);}}
+.qr-wrap{padding:0 1.1rem 0.6rem;display:flex;gap:6px;flex-wrap:wrap;}
+.qr-btn{background:transparent;border:1.5px solid var(--accent);color:var(--accent-dark);padding:0.32rem 0.75rem;border-radius:50px;font-size:0.76rem;font-weight:600;cursor:pointer;transition:all 0.18s;font-family:'DM Sans',sans-serif;}
+.qr-btn:hover{background:var(--accent);color:var(--black);}
+.chat-input-row{padding:0.85rem 1.1rem;border-top:1px solid var(--gray-200);display:flex;gap:8px;align-items:flex-end;flex-shrink:0;background:var(--white);}
+#chat-input{flex:1;border:1.5px solid var(--gray-200);border-radius:12px;padding:0.6rem 0.85rem;font-family:'DM Sans',sans-serif;font-size:0.87rem;resize:none;outline:none;max-height:80px;line-height:1.45;transition:border-color 0.2s;color:var(--text);}
+#chat-input:focus{border-color:var(--accent);}
+#chat-send{background:var(--black);border:none;width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;}
+#chat-send:hover{background:var(--accent);}
+#chat-send svg{width:15px;height:15px;fill:var(--white);transition:fill 0.2s;}
+#chat-send:hover svg{fill:var(--black);}
+@media(max-width:900px){.about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}.about-visual{display:none;}.hero-stats{gap:1.5rem;}.nav-links{display:none;}.form-row{grid-template-columns:1fr;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:96px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Cell<span>utionz</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Repair</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Cincinnati's Trusted Repair Pros</div>
+    <div class="hero">
+      <h1>We Fix Your<br><em>Broken Devices</em><br>Fast &amp; Right.</h1>
+      <p>Same-day repairs on phones, laptops, and tablets. Affordable prices, expert technicians, and a satisfaction guarantee — right here in Cincinnati, OH.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get a Free Quote →</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">5K<span>+</span></div><div class="stat-label">Devices repaired</div></div>
+        <div><div class="stat-num">1<span>hr</span></div><div class="stat-label">Avg turnaround</div></div>
+        <div><div class="stat-num">90<span>-day</span></div><div class="stat-label">Repair warranty</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Screen Repair</span><span>●</span><span>Battery Replacement</span><span>●</span><span>Water Damage</span><span>●</span><span>Laptop Repair</span><span>●</span><span>Charging Port Fix</span><span>●</span><span>Buy · Sell · Trade</span><span>●</span><span>Phone Unlocking</span><span>●</span><span>Data Recovery</span><span>●</span>
+    <span>Screen Repair</span><span>●</span><span>Battery Replacement</span><span>●</span><span>Water Damage</span><span>●</span><span>Laptop Repair</span><span>●</span><span>Charging Port Fix</span><span>●</span><span>Buy · Sell · Trade</span><span>●</span><span>Phone Unlocking</span><span>●</span><span>Data Recovery</span><span>●</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Expert repairs for<br>all your devices</h2>
+    <p class="section-sub">From cracked screens to water damage — we handle it all with professional care and transparent pricing.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="svc-icon">📱</div><div class="svc-title">Screen Replacement</div><div class="svc-desc">Cracked or shattered? We replace screens on iPhone, Samsung, Google Pixel, and more with OEM-quality parts.</div><div class="svc-price">Starting at $49</div></div>
+    <div class="service-card"><div class="svc-icon">🔋</div><div class="svc-title">Battery Replacement</div><div class="svc-desc">Restore full battery life with a genuine replacement battery. Most installs done in under 30 minutes.</div><div class="svc-price">Starting at $39</div></div>
+    <div class="service-card"><div class="svc-icon">💧</div><div class="svc-title">Water Damage Repair</div><div class="svc-desc">Dropped it in water? Bring it in fast. Our techs will clean, dry, and restore your device.</div><div class="svc-price">Starting at $49</div></div>
+    <div class="service-card"><div class="svc-icon">💻</div><div class="svc-title">Laptop Repair</div><div class="svc-desc">Screen replacements, keyboard fixes, RAM upgrades, virus removal, and more for all laptop brands.</div><div class="svc-price">Starting at $59</div></div>
+    <div class="service-card"><div class="svc-icon">🔌</div><div class="svc-title">Charging Port Repair</div><div class="svc-desc">Won't charge? A broken charging port is one of the most common and easiest fixes we do.</div><div class="svc-price">Starting at $45</div></div>
+    <div class="service-card"><div class="svc-icon">🔓</div><div class="svc-title">Unlocking &amp; Buy/Sell/Trade</div><div class="svc-desc">We unlock phones for any carrier. Also buy, sell, and trade new and used devices at fair prices.</div><div class="svc-price">Starting at $25</div></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-label">Transparent Pricing</div>
+  <h2 class="section-title" style="color:var(--white)">No hidden fees.<br>Ever.</h2>
+  <p class="section-sub">Browse our most common repair prices. All repairs include a 90-day warranty.</p>
+  <div class="pricing-tabs">
+    <button class="ptab active" onclick="showPanel('iphone',this)">iPhone</button>
+    <button class="ptab" onclick="showPanel('samsung',this)">Samsung</button>
+    <button class="ptab" onclick="showPanel('laptop',this)">Laptop</button>
+    <button class="ptab" onclick="showPanel('other',this)">Other</button>
+  </div>
+  <div class="pricing-panel active" id="panel-iphone">
+    <div class="price-row"><span class="pr-name">iPhone 15/15 Pro Screen</span><span class="pr-price">$149–$199</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 14 Screen</span><span class="pr-price">$119</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 13 Screen</span><span class="pr-price">$99</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 12 Screen</span><span class="pr-price">$89</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Battery (any model)</span><span class="pr-price">$49–$69</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Charging Port</span><span class="pr-price">$59</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Camera Repair</span><span class="pr-price">$79+</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Water Damage</span><span class="pr-price">$49+</span></div>
+  </div>
+  <div class="pricing-panel" id="panel-samsung">
+    <div class="price-row"><span class="pr-name">Galaxy S24/S23 Screen</span><span class="pr-price">$149–$189</span></div>
+    <div class="price-row"><span class="pr-name">Galaxy S22 Screen</span><span class="pr-price">$129</span></div>
+    <div class="price-row"><span class="pr-name">Galaxy A-Series Screen</span><span class="pr-price">$69–$99</span></div>
+    <div class="price-row"><span class="pr-name">Samsung Battery</span><span class="pr-price">$49–$69</span></div>
+    <div class="price-row"><span class="pr-name">Samsung Charging Port</span><span class="pr-price">$55</span></div>
+    <div class="price-row"><span class="pr-name">Samsung Back Glass</span><span class="pr-price">$59+</span></div>
+    <div class="price-row"><span class="pr-name">Water Damage Cleaning</span><span class="pr-price">$49+</span></div>
+    <div class="price-row"><span class="pr-name">Camera Lens</span><span class="pr-price">$39+</span></div>
+  </div>
+  <div class="pricing-panel" id="panel-laptop">
+    <div class="price-row"><span class="pr-name">Screen Replacement</span><span class="pr-price">$99–$179</span></div>
+    <div class="price-row"><span class="pr-name">Battery Replacement</span><span class="pr-price">$79–$129</span></div>
+    <div class="price-row"><span class="pr-name">RAM Upgrade</span><span class="pr-price">$49 + parts</span></div>
+    <div class="price-row"><span class="pr-name">SSD Upgrade</span><span class="pr-price">$59 + parts</span></div>
+    <div class="price-row"><span class="pr-name">Keyboard Replacement</span><span class="pr-price">$79+</span></div>
+    <div class="price-row"><span class="pr-name">Virus Removal</span><span class="pr-price">$59</span></div>
+    <div class="price-row"><span class="pr-name">Charging Port</span><span class="pr-price">$69+</span></div>
+    <div class="price-row"><span class="pr-name">OS Reinstall</span><span class="pr-price">$49</span></div>
+  </div>
+  <div class="pricing-panel" id="panel-other">
+    <div class="price-row"><span class="pr-name">iPad Screen</span><span class="pr-price">$79–$149</span></div>
+    <div class="price-row"><span class="pr-name">iPad Battery</span><span class="pr-price">$59</span></div>
+    <div class="price-row"><span class="pr-name">Google Pixel Screen</span><span class="pr-price">$99–$149</span></div>
+    <div class="price-row"><span class="pr-name">Phone Unlock</span><span class="pr-price">$25–$49</span></div>
+    <div class="price-row"><span class="pr-name">Data Transfer</span><span class="pr-price">$35</span></div>
+    <div class="price-row"><span class="pr-name">Data Recovery</span><span class="pr-price">Call for quote</span></div>
+    <div class="price-row"><span class="pr-name">Buy/Sell/Trade</span><span class="pr-price">Walk-in</span></div>
+    <div class="price-row"><span class="pr-name">Diagnostic Fee</span><span class="pr-price">FREE</span></div>
+  </div>
+  <p class="pricing-note">* Prices are estimates. Final price confirmed after free diagnostic. Parts and labor included unless noted.</p>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-bg-text">CZ</div>
+      <div class="about-callout">Cincinnati's go-to repair shop since <em>day one.</em></div>
+      <div class="about-chips">
+        <span class="chip">Same-Day Service</span><span class="chip">90-Day Warranty</span><span class="chip">Free Diagnostics</span><span class="chip">All Brands</span><span class="chip">Affordable</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Local experts who<br>actually care.</h2>
+      <p>At Cellutionz, we're more than just a repair shop — we're your Cincinnati neighbors. We built this business on one simple idea: everyone deserves fast, honest, affordable device repair without the runaround.</p>
+      <p>We repair cell phones, laptops, and tablets of all makes and models. We also unlock phones, and buy, sell, and trade devices at fair prices.</p>
+      <div class="about-features">
+        <div class="af-item"><div class="af-dot"></div><div class="af-text">Free diagnostics — no charge to figure out the problem</div></div>
+        <div class="af-item"><div class="af-dot"></div><div class="af-text">Most repairs completed same day, often within the hour</div></div>
+        <div class="af-item"><div class="af-dot"></div><div class="af-text">90-day warranty on all parts and labor</div></div>
+        <div class="af-item"><div class="af-dot"></div><div class="af-text">Transparent pricing — you approve before we start</div></div>
+        <div class="af-item"><div class="af-dot"></div><div class="af-text">Walk-ins always welcome, no appointment needed</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Come in, call,<br>or send a message.</h2>
+      <p>Stop by our Cincinnati location or reach out any time. Walk-ins are welcome and we'll give you a free quote on the spot.</p>
+      <div class="contact-details">
+        <div class="cd-item"><div class="cd-icon">📍</div><div><div class="cd-label">Location</div><div class="cd-val">1667B E Kemper Rd, Cincinnati, OH 45246</div></div></div>
+        <div class="cd-item"><div class="cd-icon">📞</div><div><div class="cd-label">Phone</div><div class="cd-val">(513) 818-8063</div></div></div>
+        <div class="cd-item"><div class="cd-icon">🕐</div><div><div class="cd-label">Hours</div><div class="cd-val">Mon–Fri: 10am–7pm &nbsp;|&nbsp; Sat: 11am–6pm &nbsp;|&nbsp; Sun: Closed</div></div></div>
+        <div class="cd-item"><div class="cd-icon">✉️</div><div><div class="cd-label">Email</div><div class="cd-val">info@cellutionz.com</div></div></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">Request a Repair Quote</div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="fname"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="lname"></div>
+      </div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(513) 818-8063" id="phone"></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" id="email"></div>
+      <div class="form-group">
+        <label>Device Type</label>
+        <select id="device">
+          <option value="" disabled selected>Select your device</option>
+          <option>iPhone</option><option>Samsung Galaxy</option><option>Google Pixel</option>
+          <option>iPad / Tablet</option><option>Laptop / Computer</option><option>Other Android</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Issue / Description</label><textarea placeholder="Describe what's wrong with your device..." id="issue"></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Send Request →</button>
+      <div class="form-success" id="form-success">Thanks! We'll reach out shortly with your free quote.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="logo">Cell<span>utionz</span></a>
+  <div class="footer-copy">2025 Cellutionz Cincinnati. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- AI CHAT WIDGET -->
+<div id="chat-bubble">
+  <button class="chat-fab" onclick="toggleChat()" aria-label="Chat with us">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+    <div class="chat-notif" id="chat-notif">1</div>
+  </button>
+</div>
+
+<div id="chat-window">
+  <div class="chat-header">
+    <div class="chat-avatar">🔧</div>
+    <div class="chat-hinfo">
+      <div class="chat-hname">Cellutionz AI Assistant</div>
+      <div class="chat-hstatus">Online — instant repair estimates</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs"></div>
+  <div class="qr-wrap" id="qr-wrap"></div>
+  <div class="chat-input-row">
+    <textarea id="chat-input" placeholder="Tell me about your device issue..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <button id="chat-send" onclick="sendMsg()" aria-label="Send message">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+const SYS = `You are a friendly, knowledgeable repair advisor for Cellutionz — a phone and laptop repair shop in Cincinnati, OH. Your role:
+1. Greet warmly and ask what device they have and what's wrong
+2. Ask follow-up questions to understand the issue (model, symptoms, how it happened)
+3. Give a clear cost ESTIMATE based on the pricing below
+4. Keep replies short and conversational — 2-4 sentences max unless giving a detailed estimate
+5. Be warm, helpful, and reassuring — like a trusted local expert
+6. Always mention they can come in for a FREE diagnostic for the exact price
+7. End estimates with an invitation: "Stop by anytime or call us at (513) 818-8063!"
+
+PRICING REFERENCE:
+iPhone screens: 15/15Pro $149-199, 14 $119, 13 $99, 12 $89, 11 $79, XR/XS $69-89, older $49-69
+Samsung screens: S24/S23 $149-189, S22 $129, S21 $109, A-series $69-99
+Google Pixel screens: $99-149
+iPad screens: $79-149 depending on model
+Phone batteries: $49-69 (most models)
+Laptop battery: $79-129
+Laptop screen: $99-179
+Charging port (phone): $45-59
+Charging port (laptop): $59-69
+Water damage: $49+ (assessment first)
+Laptop keyboard: $79+
+Virus removal: $59
+RAM upgrade: $49 labor + cost of RAM
+SSD upgrade: $59 labor + cost of SSD
+OS reinstall: $49
+Phone unlock: $25-49
+Data transfer: $35
+Data recovery: varies — free assessment first
+Diagnostics: always FREE
+All repairs: 90-day warranty
+
+If someone asks about buying, selling, or trading a phone, let them know we offer fair prices and they should walk in.
+Always confirm: final price is after free diagnostic. Estimates are good-faith starting points.`;
+
+let chatOpen = false;
+let msgs = [];
+let firstOpen = true;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chat-window').classList.toggle('open', chatOpen);
+  document.getElementById('chat-notif').style.display = 'none';
+  if (chatOpen && firstOpen) {
+    firstOpen = false;
+    setTimeout(() => addBot("Hey there! 👋 Welcome to Cellutionz! I can give you an instant repair estimate. What device are you having trouble with?", ['My iPhone', 'My Samsung', 'My laptop', 'My tablet']), 350);
+  }
+  if (chatOpen) setTimeout(() => document.getElementById('chat-input').focus(), 300);
+}
+
+function autoResize(el) { el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,80)+'px'; }
+
+function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();} }
+
+function now() { return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+
+function addBot(text, quickReplies) {
+  const c = document.getElementById('chat-msgs');
+  const t = document.createElement('div');
+  t.className='msg bot';
+  t.innerHTML='<div class="typing-ind"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>';
+  c.appendChild(t); c.scrollTop=c.scrollHeight;
+  setTimeout(() => {
+    t.remove();
+    const m = document.createElement('div');
+    m.className='msg bot';
+    m.innerHTML='<div class="msg-bubble">'+text.replace(/\n/g,'<br>')+'</div><div class="msg-time">'+now()+'</div>';
+    c.appendChild(m); c.scrollTop=c.scrollHeight;
+    if(quickReplies&&quickReplies.length) showQR(quickReplies);
+  }, 800 + Math.random()*500);
+}
+
+function showQR(replies) {
+  const qr = document.getElementById('qr-wrap');
+  qr.innerHTML='';
+  replies.forEach(r => {
+    const b=document.createElement('button');
+    b.className='qr-btn'; b.textContent=r;
+    b.onclick=()=>{qr.innerHTML=''; sendMsg(r);};
+    qr.appendChild(b);
+  });
+}
+
+async function sendMsg(override) {
+  const inp = document.getElementById('chat-input');
+  const text = override || inp.value.trim();
+  if(!text) return;
+  inp.value=''; inp.style.height='auto';
+  document.getElementById('qr-wrap').innerHTML='';
+
+  const c = document.getElementById('chat-msgs');
+  const um=document.createElement('div');
+  um.className='msg user';
+  um.innerHTML='<div class="msg-bubble">'+text+'</div><div class="msg-time">'+now()+'</div>';
+  c.appendChild(um); c.scrollTop=c.scrollHeight;
+
+  msgs.push({role:'user',content:text});
+
+  const tp=document.createElement('div');
+  tp.className='msg bot'; tp.id='tp-live';
+  tp.innerHTML='<div class="typing-ind"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>';
+  c.appendChild(tp); c.scrollTop=c.scrollHeight;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:msgs})
+    });
+    const data = await res.json();
+    const reply = data.content&&data.content[0]?data.content[0].text:"Sorry, I'm having trouble right now! Please call us at (513) 818-8063 or stop by — we'd love to help.";
+    msgs.push({role:'assistant',content:reply});
+    document.getElementById('tp-live')&&document.getElementById('tp-live').remove();
+    const bm=document.createElement('div');
+    bm.className='msg bot';
+    bm.innerHTML='<div class="msg-bubble">'+reply.replace(/\n/g,'<br>')+'</div><div class="msg-time">'+now()+'</div>';
+    c.appendChild(bm); c.scrollTop=c.scrollHeight;
+    const lo=reply.toLowerCase();
+    if(lo.includes('$')) showQR(['Get another estimate','Call the shop','Book a repair']);
+    else if(lo.includes('model')||lo.includes('which iphone')||lo.includes('which samsung')) showQR(['iPhone 15','iPhone 14','iPhone 13','Samsung S24','Samsung A-series']);
+    else if(lo.includes('what happened')||lo.includes('how did')) showQR(['Dropped it','Got wet','Just stopped working','Other issue']);
+  } catch(e) {
+    document.getElementById('tp-live')&&document.getElementById('tp-live').remove();
+    addBot("Oops! Something went wrong. Please call us at (513) 818-8063 or stop by — we're always happy to help!");
+  }
+}
+
+function showPanel(id,btn) {
+  document.querySelectorAll('.pricing-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function submitForm() {
+  const fname=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const device=document.getElementById('device').value;
+  if(!fname||!phone||!device){alert('Please fill in your name, phone number, and device type.');return;}
+  document.getElementById('form-success').style.display='block';
+  document.querySelector('.form-submit').style.display='none';
+}
+</script>
+</body>
+</html>
