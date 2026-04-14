@@ -643,7 +643,7 @@ async function sendMsg(override) {
       body: JSON.stringify({model:'claude-sonnet-4-20250514', max_tokens:1000, system:SYS, messages:msgs})
     });
     var data = await res.json();
-    var reply = (data.content && data.content[0]) ? data.content[0].text : 'Sorry, something went wrong! Please call (513) 818-8063 or WhatsApp (513) 399-4675.';
+    var reply = (data.content && data.content[0]) ? data.content[0].text : ('DEBUG ERROR: ' + JSON.stringify(data).substring(0,200));
     msgs.push({role:'assistant', content:reply});
     var live = document.getElementById('tp-live'); if (live) live.remove();
     var bm = document.createElement('div');
