@@ -300,7 +300,7 @@ footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;j
         <div class="cd-item"><div class="cd-icon">📍</div><div><div class="cd-label">Location</div><div class="cd-val">1667B E Kemper Rd, Cincinnati, OH 45246</div></div></div>
         <div class="cd-item"><div class="cd-icon">📞</div><div><div class="cd-label">Phone</div><div class="cd-val">(513) 818-8063</div></div></div>
         <div class="cd-item"><div class="cd-icon">🕐</div><div><div class="cd-label">Hours</div><div class="cd-val">Mon–Fri: 10am–7pm &nbsp;|&nbsp; Sat: 11am–6pm &nbsp;|&nbsp; Sun: Closed</div></div></div>
-        <div class="cd-item"><div class="cd-icon">✉️</div><div><div class="cd-label">Email</div><div class="cd-val">info@cellutionz.com</div></div></div>
+        <div class="cd-item"><div class="cd-icon">✉️</div><div><div class="cd-label">Email</div><div class="cd-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f0999e969fb093959c9c8584999f9e8ade939f9d">[email&#160;protected]</a></div></div></div>
       </div>
     </div>
     <div class="contact-form">
@@ -361,7 +361,7 @@ footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;j
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
 const SYS = `You are a friendly, knowledgeable repair advisor for Cellutionz — a phone and laptop repair shop in Cincinnati, OH. Your role:
 1. Greet warmly and ask what device they have and what's wrong
 2. Ask follow-up questions to understand the issue (model, symptoms, how it happened)
@@ -465,7 +465,7 @@ async function sendMsg(override) {
   c.appendChild(tp); c.scrollTop=c.scrollHeight;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
+    const res = await fetch('https://cellutionz-proxy.netlify.app/.netlify/functions/chat',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:msgs})
@@ -499,10 +499,4 @@ function submitForm() {
   const fname=document.getElementById('fname').value.trim();
   const phone=document.getElementById('phone').value.trim();
   const device=document.getElementById('device').value;
-  if(!fname||!phone||!device){alert('Please fill in your name, phone number, and device type.');return;}
-  document.getElementById('form-success').style.display='block';
-  document.querySelector('.form-submit').style.display='none';
-}
-</script>
-</body>
-</html>
+  if(!fname||!phone||!dev
