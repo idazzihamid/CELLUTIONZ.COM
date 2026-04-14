@@ -152,6 +152,12 @@ footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;j
 #chat-send:hover{background:var(--accent);}
 #chat-send svg{width:15px;height:15px;fill:var(--white);transition:fill 0.2s;}
 #chat-send:hover svg{fill:var(--black);}
+/* WHATSAPP */
+.wa-btn{position:fixed;bottom:28px;left:28px;z-index:9999;width:64px;height:64px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,0.45);transition:transform 0.2s;text-decoration:none;}
+.wa-btn:hover{transform:scale(1.08);}
+.wa-btn svg{width:32px;height:32px;fill:#ffffff;}
+.wa-tooltip{position:absolute;left:75px;background:var(--black);color:var(--white);padding:6px 12px;border-radius:8px;font-size:0.8rem;font-weight:600;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none;}
+.wa-btn:hover .wa-tooltip{opacity:1;}
 @media(max-width:900px){.about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}.about-visual{display:none;}.hero-stats{gap:1.5rem;}.nav-links{display:none;}.form-row{grid-template-columns:1fr;}#chat-window{width:calc(100vw - 32px);right:16px;bottom:96px;}}
 </style>
 </head>
@@ -203,12 +209,12 @@ footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;j
     <p class="section-sub">From cracked screens to water damage — we handle it all with professional care and transparent pricing.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card"><div class="svc-icon">📱</div><div class="svc-title">Screen Replacement</div><div class="svc-desc">Cracked or shattered? We replace screens on iPhone, Samsung, Google Pixel, and more with OEM-quality parts.</div><div class="svc-price">Starting at $49</div></div>
-    <div class="service-card"><div class="svc-icon">🔋</div><div class="svc-title">Battery Replacement</div><div class="svc-desc">Restore full battery life with a genuine replacement battery. Most installs done in under 30 minutes.</div><div class="svc-price">Starting at $39</div></div>
-    <div class="service-card"><div class="svc-icon">💧</div><div class="svc-title">Water Damage Repair</div><div class="svc-desc">Dropped it in water? Bring it in fast. Our techs will clean, dry, and restore your device.</div><div class="svc-price">Starting at $49</div></div>
-    <div class="service-card"><div class="svc-icon">💻</div><div class="svc-title">Laptop Repair</div><div class="svc-desc">Screen replacements, keyboard fixes, RAM upgrades, virus removal, and more for all laptop brands.</div><div class="svc-price">Starting at $59</div></div>
-    <div class="service-card"><div class="svc-icon">🔌</div><div class="svc-title">Charging Port Repair</div><div class="svc-desc">Won't charge? A broken charging port is one of the most common and easiest fixes we do.</div><div class="svc-price">Starting at $45</div></div>
-    <div class="service-card"><div class="svc-icon">🔓</div><div class="svc-title">Unlocking &amp; Buy/Sell/Trade</div><div class="svc-desc">We unlock phones for any carrier. Also buy, sell, and trade new and used devices at fair prices.</div><div class="svc-price">Starting at $25</div></div>
+    <div class="service-card"><div class="svc-icon">📱</div><div class="svc-title">Screen Replacement</div><div class="svc-desc">Cracked or shattered? We replace screens on iPhone, Samsung, Google Pixel, and more with OEM-quality parts.</div><div class="svc-price">Starting at $50</div></div>
+    <div class="service-card"><div class="svc-icon">🔋</div><div class="svc-title">Battery Replacement</div><div class="svc-desc">Restore full battery life with a genuine replacement battery. Most installs done in under 30 minutes.</div><div class="svc-price">Starting at $50</div></div>
+    <div class="service-card"><div class="svc-icon">💧</div><div class="svc-title">Water Damage Repair</div><div class="svc-desc">Dropped it in water? Bring it in fast. Our techs will clean, dry, and restore your device.</div><div class="svc-price">Starting at $50</div></div>
+    <div class="service-card"><div class="svc-icon">💻</div><div class="svc-title">Laptop Repair</div><div class="svc-desc">Screen replacements, keyboard fixes, RAM upgrades, virus removal, and more for all laptop brands.</div><div class="svc-price">Starting at $50</div></div>
+    <div class="service-card"><div class="svc-icon">🔌</div><div class="svc-title">Charging Port Repair</div><div class="svc-desc">Won't charge? A broken charging port is one of the most common and easiest fixes we do.</div><div class="svc-price">Starting at $50</div></div>
+    <div class="service-card"><div class="svc-icon">🔓</div><div class="svc-title">Unlocking &amp; Buy/Sell/Trade</div><div class="svc-desc">We unlock phones for any carrier. Also buy, sell, and trade new and used devices at fair prices.</div><div class="svc-price">Starting at $50</div></div>
   </div>
 </section>
 
@@ -223,41 +229,41 @@ footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;j
     <button class="ptab" onclick="showPanel('other',this)">Other</button>
   </div>
   <div class="pricing-panel active" id="panel-iphone">
-    <div class="price-row"><span class="pr-name">iPhone 15/15 Pro Screen</span><span class="pr-price">$149–$199</span></div>
-    <div class="price-row"><span class="pr-name">iPhone 14 Screen</span><span class="pr-price">$119</span></div>
-    <div class="price-row"><span class="pr-name">iPhone 13 Screen</span><span class="pr-price">$99</span></div>
-    <div class="price-row"><span class="pr-name">iPhone 12 Screen</span><span class="pr-price">$89</span></div>
-    <div class="price-row"><span class="pr-name">iPhone Battery (any model)</span><span class="pr-price">$49–$69</span></div>
-    <div class="price-row"><span class="pr-name">iPhone Charging Port</span><span class="pr-price">$59</span></div>
-    <div class="price-row"><span class="pr-name">iPhone Camera Repair</span><span class="pr-price">$79+</span></div>
-    <div class="price-row"><span class="pr-name">iPhone Water Damage</span><span class="pr-price">$49+</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 15/15 Pro Screen</span><span class="pr-price">$150–$350</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 14 Screen</span><span class="pr-price">$120</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 13 Screen</span><span class="pr-price">$100</span></div>
+    <div class="price-row"><span class="pr-name">iPhone 12 Screen</span><span class="pr-price">$90</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Battery (any model)</span><span class="pr-price">$50–$100</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Charging Port</span><span class="pr-price">$60</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Camera Repair</span><span class="pr-price">$80+</span></div>
+    <div class="price-row"><span class="pr-name">iPhone Water Damage</span><span class="pr-price">$50+</span></div>
   </div>
   <div class="pricing-panel" id="panel-samsung">
-    <div class="price-row"><span class="pr-name">Galaxy S24/S23 Screen</span><span class="pr-price">$149–$189</span></div>
-    <div class="price-row"><span class="pr-name">Galaxy S22 Screen</span><span class="pr-price">$129</span></div>
-    <div class="price-row"><span class="pr-name">Galaxy A-Series Screen</span><span class="pr-price">$69–$99</span></div>
-    <div class="price-row"><span class="pr-name">Samsung Battery</span><span class="pr-price">$49–$69</span></div>
-    <div class="price-row"><span class="pr-name">Samsung Charging Port</span><span class="pr-price">$55</span></div>
-    <div class="price-row"><span class="pr-name">Samsung Back Glass</span><span class="pr-price">$59+</span></div>
-    <div class="price-row"><span class="pr-name">Water Damage Cleaning</span><span class="pr-price">$49+</span></div>
-    <div class="price-row"><span class="pr-name">Camera Lens</span><span class="pr-price">$39+</span></div>
+    <div class="price-row"><span class="pr-name">Galaxy S24/S23 Screen</span><span class="pr-price">$150–$320</span></div>
+    <div class="price-row"><span class="pr-name">Galaxy S22 Screen</span><span class="pr-price">$130</span></div>
+    <div class="price-row"><span class="pr-name">Galaxy A-Series Screen</span><span class="pr-price">$70–$150</span></div>
+    <div class="price-row"><span class="pr-name">Samsung Battery</span><span class="pr-price">$50–$100</span></div>
+    <div class="price-row"><span class="pr-name">Samsung Charging Port</span><span class="pr-price">$60</span></div>
+    <div class="price-row"><span class="pr-name">Samsung Back Glass</span><span class="pr-price">$60+</span></div>
+    <div class="price-row"><span class="pr-name">Water Damage Cleaning</span><span class="pr-price">$50+</span></div>
+    <div class="price-row"><span class="pr-name">Camera Lens</span><span class="pr-price">$50+</span></div>
   </div>
   <div class="pricing-panel" id="panel-laptop">
-    <div class="price-row"><span class="pr-name">Screen Replacement</span><span class="pr-price">$99–$179</span></div>
-    <div class="price-row"><span class="pr-name">Battery Replacement</span><span class="pr-price">$79–$129</span></div>
-    <div class="price-row"><span class="pr-name">RAM Upgrade</span><span class="pr-price">$49 + parts</span></div>
-    <div class="price-row"><span class="pr-name">SSD Upgrade</span><span class="pr-price">$59 + parts</span></div>
-    <div class="price-row"><span class="pr-name">Keyboard Replacement</span><span class="pr-price">$79+</span></div>
-    <div class="price-row"><span class="pr-name">Virus Removal</span><span class="pr-price">$59</span></div>
+    <div class="price-row"><span class="pr-name">Screen Replacement</span><span class="pr-price">$100–$350</span></div>
+    <div class="price-row"><span class="pr-name">Battery Replacement</span><span class="pr-price">$80–$200</span></div>
+    <div class="price-row"><span class="pr-name">RAM Upgrade</span><span class="pr-price">$50 + parts</span></div>
+    <div class="price-row"><span class="pr-name">SSD Upgrade</span><span class="pr-price">$60 + parts</span></div>
+    <div class="price-row"><span class="pr-name">Keyboard Replacement</span><span class="pr-price">$80+</span></div>
+    <div class="price-row"><span class="pr-name">Virus Removal</span><span class="pr-price">$60</span></div>
     <div class="price-row"><span class="pr-name">Charging Port</span><span class="pr-price">$69+</span></div>
-    <div class="price-row"><span class="pr-name">OS Reinstall</span><span class="pr-price">$49</span></div>
+    <div class="price-row"><span class="pr-name">OS Reinstall</span><span class="pr-price">$50</span></div>
   </div>
   <div class="pricing-panel" id="panel-other">
-    <div class="price-row"><span class="pr-name">iPad Screen</span><span class="pr-price">$79–$149</span></div>
-    <div class="price-row"><span class="pr-name">iPad Battery</span><span class="pr-price">$59</span></div>
-    <div class="price-row"><span class="pr-name">Google Pixel Screen</span><span class="pr-price">$99–$149</span></div>
-    <div class="price-row"><span class="pr-name">Phone Unlock</span><span class="pr-price">$25–$49</span></div>
-    <div class="price-row"><span class="pr-name">Data Transfer</span><span class="pr-price">$35</span></div>
+    <div class="price-row"><span class="pr-name">iPad Screen</span><span class="pr-price">$80–$200</span></div>
+    <div class="price-row"><span class="pr-name">iPad Battery</span><span class="pr-price">$60</span></div>
+    <div class="price-row"><span class="pr-name">Google Pixel Screen</span><span class="pr-price">$100–$250</span></div>
+    <div class="price-row"><span class="pr-name">Phone Unlock</span><span class="pr-price">$50–$100</span></div>
+    <div class="price-row"><span class="pr-name">Data Transfer</span><span class="pr-price">$50</span></div>
     <div class="price-row"><span class="pr-name">Data Recovery</span><span class="pr-price">Call for quote</span></div>
     <div class="price-row"><span class="pr-name">Buy/Sell/Trade</span><span class="pr-price">Walk-in</span></div>
     <div class="price-row"><span class="pr-name">Diagnostic Fee</span><span class="pr-price">FREE</span></div>
@@ -335,6 +341,12 @@ footer{background:var(--black);padding:3rem 5%;display:flex;align-items:center;j
 </footer>
 
 <!-- AI CHAT WIDGET -->
+<!-- WHATSAPP BUTTON -->
+<a class="wa-btn" href="https://wa.me/15133994675" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+
 <div id="chat-bubble">
   <button class="chat-fab" onclick="toggleChat()" aria-label="Chat with us">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
@@ -372,23 +384,23 @@ const SYS = `You are a friendly, knowledgeable repair advisor for Cellutionz —
 7. End estimates with an invitation: "Stop by anytime or call us at (513) 818-8063!"
 
 PRICING REFERENCE:
-iPhone screens: 15/15Pro $149-199, 14 $119, 13 $99, 12 $89, 11 $79, XR/XS $69-89, older $49-69
-Samsung screens: S24/S23 $149-189, S22 $129, S21 $109, A-series $69-99
-Google Pixel screens: $99-149
-iPad screens: $79-149 depending on model
+iPhone screens: 15/15Pro $149-199, 14 $120, 13 $99, 12 $89, 11 $79, XR/XS $69-89, older $49-69
+Samsung screens: S24/S23 $149-189, S22 $130, S21 $109, A-series $70-150
+Google Pixel screens: $100-250
+iPad screens: $80-200 depending on model
 Phone batteries: $49-69 (most models)
-Laptop battery: $79-129
-Laptop screen: $99-179
+Laptop battery: $80-200
+Laptop screen: $100-350
 Charging port (phone): $45-59
 Charging port (laptop): $59-69
-Water damage: $49+ (assessment first)
-Laptop keyboard: $79+
-Virus removal: $59
+Water damage: $50+ (assessment first)
+Laptop keyboard: $80+
+Virus removal: $60
 RAM upgrade: $49 labor + cost of RAM
 SSD upgrade: $59 labor + cost of SSD
-OS reinstall: $49
-Phone unlock: $25-49
-Data transfer: $35
+OS reinstall: $50
+Phone unlock: $50-100
+Data transfer: $50
 Data recovery: varies — free assessment first
 Diagnostics: always FREE
 All repairs: 90-day warranty
@@ -465,7 +477,7 @@ async function sendMsg(override) {
   c.appendChild(tp); c.scrollTop=c.scrollHeight;
 
   try {
-    const res = await fetch('https://poetic-kitsune-07cad5.netlify.app/.netlify/functions/chat',{
+    const res = await fetch('https://poetic-kitsune-07cad5.netlify.app/.netlify/functions/chat',{mode:'cors',
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:msgs})
