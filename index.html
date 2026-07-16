@@ -271,9 +271,9 @@ footer{background:var(--black);padding:2.5rem 5%;display:-webkit-flex;display:fl
       <a href="#services" class="btn-secondary">Our Services</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">5K<span>+</span></div><div class="stat-label">Devices repaired</div></div>
-      <div><div class="stat-num">1<span>hr</span></div><div class="stat-label">Avg turnaround</div></div>
-      <div><div class="stat-num">90<span>-day</span></div><div class="stat-label">Repair warranty</div></div>
+      <div><div class="stat-num counter-stat" data-target="12" data-suffix="+">0</div><div class="stat-label">Years in business</div></div>
+      <div><div class="stat-num counter-stat" data-target="5000" data-suffix="+">0</div><div class="stat-label">Repairs completed</div></div>
+      <div><div class="stat-num counter-stat" data-target="90" data-suffix="-day">0</div><div class="stat-label">Warranty</div></div>
     </div>
   </div>
 </section>
@@ -427,7 +427,7 @@ footer{background:var(--black);padding:2.5rem 5%;display:-webkit-flex;display:fl
 
 <footer>
   <a href="#" class="logo">Cell<span>utionz</span></a>
-  <div class="footer-copy">2025 Cellutionz Cincinnati. All rights reserved.</div>
+  <div class="footer-copy">© 2025 Cellutionz Cincinnati. All rights reserved. Made by Hamid.</div>
   <div class="footer-links">
     <a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a>
   </div>
@@ -659,6 +659,92 @@ async function sendMsg(override) {
     addBot('Something went wrong! Please call (513) 818-8063 or WhatsApp (513) 399-4675 — we are always happy to help!');
   }
 }
+</script>
+<script>
+/* ── SCROLL SCRAMBLE TITLES ── */
+(function() {
+  var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  function prepareTitle(el) {
+    var html = el.innerHTML;
+    var parts = html.split(/(<[^>]+>)/);
+    var out = '';
+    parts.forEach(function(part) {
+      if (/^<[^>]+>$/.test(part)) { out += part; return; }
+      for (var i = 0; i < part.length; i++) {
+        var ch = part[i];
+        if (ch === ' ') { out += ' '; }
+        else { out += '<span class="scr-char" data-final="' + ch + '">' + ch + '</span>'; }
+      }
+    });
+    el.innerHTML = out;
+  }
+
+  function scrambleReveal(el) {
+    if (el.dataset.scrambled) return;
+    el.dataset.scrambled = '1';
+    var spans = el.querySelectorAll('.scr-char');
+    spans.forEach(function(span, i) {
+      var final = span.dataset.final;
+      var iterations = 0;
+      var maxIter = 8 + Math.floor(Math.random() * 6);
+      var delay = i * 25;
+      setTimeout(function() {
+        var interval = setInterval(function() {
+          if (iterations < maxIter) {
+            span.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+            iterations++;
+          } else {
+            span.textContent = final;
+            clearInterval(interval);
+          }
+        }, 35);
+      }, delay);
+    });
+  }
+
+  function animateCounter(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    var target = parseInt(el.dataset.target, 10);
+    var suffix = el.dataset.suffix || '';
+    var digits = String(target).length;
+    var duration = 1200;
+    var start = performance.now();
+    function frame(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      if (progress < 0.85) {
+        var out = '';
+        for (var i = 0; i < digits; i++) out += Math.floor(Math.random() * 10);
+        el.textContent = out + suffix;
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = target.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(frame);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var titles = document.querySelectorAll('#hero h1, .section-label, .section-title, .svc-title');
+    titles.forEach(prepareTitle);
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) scrambleReveal(entry.target);
+      });
+    }, { threshold: 0.3 });
+    titles.forEach(function(el) { observer.observe(el); });
+
+    var counters = document.querySelectorAll('.counter-stat');
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) animateCounter(entry.target);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el) { counterObserver.observe(el); });
+  });
+})();
 </script>
 </body>
 </html>
