@@ -561,13 +561,50 @@ function showPanel(id) { /* fixed */
 }
 
 /* ── FORM ── */
+var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // <-- replace YOUR_FORM_ID after setup
+
 function submitForm() {
   var fname = document.getElementById('fname').value.trim();
+  var lname = document.getElementById('lname').value.trim();
   var phone = document.getElementById('phone').value.trim();
+  var email = document.getElementById('email').value.trim();
   var device = document.getElementById('device').value;
+  var issue = document.getElementById('issue').value.trim();
+
   if (!fname || !phone || !device) { alert('Please fill in your name, phone number, and device type.'); return; }
-  document.getElementById('form-success').style.display = 'block';
-  document.querySelector('.form-submit').style.display = 'none';
+
+  var btn = document.querySelector('.form-submit');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      _subject: 'New Repair Quote Request - ' + fname + ' ' + lname,
+      'First Name': fname,
+      'Last Name': lname,
+      'Phone': phone,
+      'Email': email,
+      'Device': device,
+      'Issue': issue
+    })
+  })
+  .then(function(res) {
+    if (res.ok) {
+      document.getElementById('form-success').style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Send Request →';
+      alert('Something went wrong sending your request. Please call or WhatsApp us instead.');
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Send Request →';
+    alert('Something went wrong sending your request. Please call or WhatsApp us instead.');
+  });
 }
 
 /* ── AI CHAT ── */
